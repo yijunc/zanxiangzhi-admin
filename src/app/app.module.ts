@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
+import { AppComponent, DialogResetDialog } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule, MatCardModule, MatTableModule, MatButtonModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogResetDialog
   ],
   imports: [
     BrowserModule,
@@ -23,8 +23,15 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogResetDialog]
 })
 export class AppModule { }

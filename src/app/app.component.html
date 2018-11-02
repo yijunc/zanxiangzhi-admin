@@ -3,29 +3,45 @@
   <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Tag </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <td mat-cell *matCellDef="let element" style="text-overflow: ellipsis; overflow: ellipsis;">
+      <!-- <div style="white-space:nowrap;overflow:hidden; width:6em; text-overflow: ellipsis; "> -->
+      {{element.name}}
+      <!-- </div> -->
+    </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
+  <ng-container matColumnDef="left">
     <th mat-header-cell *matHeaderCellDef> Left </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.left}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="is_operating" style="padding-right:20px;">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.is_operating}} </td>
   </ng-container>
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="accent">重置</button>
-      <button mat-raised-button color="warn">下线</button>
+      <div style="display: inline;">
+        <!-- <button mat-raised-button color="info" style="min-width: 40px;max-width: 50px;font-size: 10px;float: left;" >查看</button> -->
+        <button mat-flat-button color="accent" 
+        style="min-width: 40px;max-width: 50px;font-size: 10px;float: left;"
+          (click)="reset(element.id)">重置</button>
+        <button mat-flat-button color="warn" 
+        style="min-width: 40px;max-width: 50px;font-size: 10px;float: left;"
+          (click)="offline(element.id)">下线</button>
+      </div>
     </td>
   </ng-container>
 
