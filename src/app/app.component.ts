@@ -1,7 +1,6 @@
 import { Component, Inject } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { tmpdir } from "os";
 
 
 export interface PeriodicElement {
